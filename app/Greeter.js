@@ -14,12 +14,14 @@
 import React, { Component } from 'react'
 //引用config
 import config from './config.json';
+//引入css
+import styles from './Greeter.css';
 
 //定义一个类
 class Greeter extends Component {
     render() {
         return ( 
-            <div> 
+            <div className={sytles.root}> 
                 { config.greetText } 
             </div>
         )

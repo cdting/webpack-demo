@@ -11,19 +11,32 @@ module.exports = {
 
     module: {
         loaders: [{
-            test: /\.json$/,
-            loader: "json"
-        }, {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel',
-            query: {
-                presets: ['es2015', 'react']
-            }
+                test: /\.json$/,
+                loader: "json"
+            }, {
+                test: /\.js$/,
+                exclude: /node_modules/, //排除node_modules
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
 
-        }]
+            },
+            //模块css
+            {
+                test: /\.css$/,
+                loader: 'style!css?modules!postcss'
+            }
+        ]
     },
 
+    postcss: [
+        require('autoprefixer') //调用autoprefixer插件
+    ],
+    //Plugins插件，可实现压缩js文件
+    plugins: [
+        new webpack.BannerPlugin("Copyright Flying Unicorns inc.") //在这个数组中new一个就可以了
+    ],
     devServer: {
         contentBase: "./public",
         colors: true,
