@@ -26,6 +26,6 @@ class Greeter extends Component {
             </div>
         )
     }
-}
+};
 
 export default Greeter;
